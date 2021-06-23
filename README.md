@@ -1,4 +1,4 @@
-# Automatic oral diseases in smartphone-based images
+# Automatic oral disease diagnosis
 
 ## Introduction
 This is the source code of the paper “Automatic detection of oral cancer in smartphone-based images using deep learning for early diagnosis” (under review).
