@@ -19,7 +19,7 @@ This is the source code of the paper “Automatic detection of oral cancer in sm
 
 For more details using HRNet, please go to the [official website](https://github.com/HRNet/HRNet-Image-Classification).
 
-##Software
+## Software
 
 ### requirement
 -PyQT5
