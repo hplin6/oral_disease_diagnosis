@@ -1,0 +1,93 @@
+GPUS: (0,)
+LOG_DIR: 'log/'
+DATA_DIR: '/home/chenxi/dataset/'
+OUTPUT_DIR: 'output/'
+WORKERS: 1
+PRINT_FREQ: 1000
+
+MODEL: 
+  NAME: cls_hrnet
+  IMAGE_SIZE: 
+    - 512
+    - 512
+  EXTRA:
+    STAGE1:
+      NUM_MODULES: 1
+      NUM_RANCHES: 1
+      BLOCK: BOTTLENECK
+      NUM_BLOCKS:
+      - 4
+      NUM_CHANNELS:
+      - 64
+      FUSE_METHOD: SUM
+    STAGE2:
+      NUM_MODULES: 1
+      NUM_BRANCHES: 2
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 18
+      - 36
+      FUSE_METHOD: SUM
+    STAGE3:
+      NUM_MODULES: 4
+      NUM_BRANCHES: 3
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 18
+      - 36
+      - 72
+      FUSE_METHOD: SUM
+    STAGE4:
+      NUM_MODULES: 3
+      NUM_BRANCHES: 4
+      BLOCK: BASIC
+      NUM_BLOCKS:
+      - 4
+      - 4
+      - 4
+      - 4
+      NUM_CHANNELS:
+      - 18
+      - 36
+      - 72
+      - 144
+      FUSE_METHOD: SUM
+CUDNN:
+  BENCHMARK: true
+  DETERMINISTIC: false
+  ENABLED: true
+DATASET:
+  DATASET: 'oral'
+  DATA_FORMAT: 'jpg'
+  ROOT: 'data/imagenet/'
+  TEST_SET: 'test'
+  VALID_SET: 'valid'
+  TRAIN_SET: 'train'
+TEST:
+  BATCH_SIZE_PER_GPU: 32
+  MODEL_FILE: ''
+TRAIN:
+  BATCH_SIZE_PER_GPU: 24
+  BEGIN_EPOCH: 0
+  END_EPOCH: 100
+  RESUME: false
+  LR_FACTOR: 0.7
+  LR_STEP:
+  - 15
+  - 30
+  - 45
+  OPTIMIZER: sgd
+  LR: 0.001
+  WD: 0.0001
+  MOMENTUM: 0.9
+  NESTEROV: true
+  SHUFFLE: true
+DEBUG:
+  DEBUG: false
