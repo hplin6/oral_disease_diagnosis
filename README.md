@@ -27,19 +27,19 @@ python prepare_data/create_dataset.py
 - The official pre-trained weights [official website](https://github.com/HRNet/HRNet-Image-Classification) are also used. ( loading by the file of "save_weights/hrnetv2_w18_imagenet_pretained.pth" )
 - Prepare the dataset, the structure of files are as follows:
 
-    FOLDER/dataset/
-    ├── train
-    │  ├── cancer
-    │  ├── highrisk
-    │  ├── lowrisk
-    │  ├── normal
-    │  └── ucler
-    ├── valid
-    │  ├── cancer
-    │  ├── highrisk
-    │  ├── lowrisk
-    │  ├── normal
-    │  └── ucler
+        FOLDER/dataset/
+        ├── train
+        │  ├── cancer
+        │  ├── highrisk
+        │  ├── lowrisk
+        │  ├── normal
+        │  └── ucler
+        ├── valid
+        │  ├── cancer
+        │  ├── highrisk
+        │  ├── lowrisk
+        │  ├── normal
+        │  └── ucler
 
 ```bash
 python ./tools/train.py
