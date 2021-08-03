@@ -203,7 +203,7 @@ def main_train(subdir):
             best_perf = perf_indicator
             best_model = True
             if epoch >= 0:
-                modelname= config.MODEL.NAME + '-{}_{}_{}.h5'.format(subdir,runtime,epoch+1)
+                modelname= config.MODEL.NAME + '-{}_{}_{}'.format(subdir,runtime,epoch+1)
                 final_model_state_file = os.path.join(final_output_dir,modelname+".pth")
                 logger.info('saving final model state to {}'.format(
                     final_model_state_file))
@@ -215,10 +215,10 @@ def main_train(subdir):
     logger.removeHandler(console)#not print again
 
 if __name__ == '__main__':
-    train_method="traind_valid"
+    train_method="cross_valid"
     if train_method=="cross_valid":
         subdirs=["part1","part2","part3","part4","part5"]
         for subdir in subdirs:
             main_train(subdir)
     elif train_method=="traind_valid":
-        main_train("v41")
+        main_train("v4")
