@@ -17,38 +17,45 @@ This is the source code of the paper “Automatic detection of oral cancer in sm
 - PyCm
 
 ### Data preparation
-- python prepare_data/create_dataset.py
+```bash
+python prepare_data/create_dataset.py
+```
 - Note: This was only tested on Windows 10 system by us.
 
 ### Training
 - The training is only slight differences (with the same method but different super-parameters) on the original implementation.
 - The official pre-trained weights [official website](https://github.com/HRNet/HRNet-Image-Classification) are also used. ( loading by the file of "save_weights/hrnetv2_w18_imagenet_pretained.pth" )
 - Prepare the dataset, the structure of files are as follows:
--  -----train
-      |     -cancer
-      |     -highrisk
-      |     -lowrisk
-      |     -normal
-      |     -ucler
-      ---valid
-      |     -cancer
-      |     -highrisk
-      |     -lowrisk
-      |     -normal
-      |     -ucler     
 
+    FOLDER/dataset/
+    ├── train
+    │  ├── cancer
+    │  ├── highrisk
+    │  ├── lowrisk
+    │  ├── normal
+    │  └── ucler
+    ├── valid
+    │  ├── cancer
+    │  ├── highrisk
+    │  ├── lowrisk
+    │  ├── normal
+    │  └── ucler
 
-- python ./tools/train.py
-- The trained models (on oral dataset) are available at [BaiduYun(Access Code:lyjv)] (https://pan.baidu.com/s/17YgQ_BE6tURvZNNG50sPeg)
+```bash
+python ./tools/train.py
+```
+- The trained models (on oral dataset) are available at [BaiduYun(Access Code:lyjv)](https://pan.baidu.com/s/17YgQ_BE6tURvZNNG50sPeg)
 
 ### Testing
 - The trained model should be under ./save_weights/
 - The original capturing image (by smartphone camera) should be center-cropped (by create_dataset.py) before the test
-- python ./tools/test.py            #predict and print results
-
+```bash
+python ./tools/test.py            #predict and print results
+```
 
 ### Report result
 - The results were reported based on test results(test_result.csv), using the backend of PyCM and the Scikit-learn library 
-- python ./tools/report_result.py    
-
+```bash
+python ./tools/report_result.py    
+```
 
