@@ -53,7 +53,7 @@ python ./tools/train.py
 python ./tools/test.py            #predict and print results
 ```
 
-### Report result
+### Report results
 - The results were reported based on test results(test_result.csv), using the backend of PyCM and the Scikit-learn library 
 ```bash
 python ./tools/report_result.py    
